@@ -12,12 +12,14 @@ class FLCRDashboardDetailsPageController: UIPageViewController {
     var index = 0
     var items: [FLCRPhoto] = []
     
+    /// Method to initialize ViewController
     class func controller() -> FLCRDashboardDetailsPageController? {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let detailsController = storyboard.instantiateViewController(identifier: FLCRConstants.DashboardDetailsPageControllerConstants.identifire) as? FLCRDashboardDetailsPageController
         return detailsController
     }
     
+    /// didload
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -29,6 +31,10 @@ class FLCRDashboardDetailsPageController: UIPageViewController {
         }
     }
     
+    /// Method to get viewcontroller at given index
+    ///
+    /// - parameter index: Int
+    /// - returns UIViewController
     func viewControllerAtIndex(index: Int) -> UIViewController? {
         if index >= 0, index < items.count {
             let controller = FLCRDashboardDetailsController.controller()
@@ -39,6 +45,10 @@ class FLCRDashboardDetailsPageController: UIPageViewController {
         return nil
     }
     
+    /// Method to get index of current view controller at pageviewcontroller
+    ///
+    /// - parameter viewController: UIViewController
+    /// - returns Int
     func index(of viewController: UIViewController?) -> Int {
         guard let detailsController = viewController as? FLCRDashboardDetailsController else {
             return -1
@@ -48,6 +58,7 @@ class FLCRDashboardDetailsPageController: UIPageViewController {
     
 }
 
+/// Extension of FLCRDashboardDetailsPageController to satisfy pageview controller datasource & delegate
 extension FLCRDashboardDetailsPageController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {

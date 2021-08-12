@@ -17,14 +17,17 @@ class FLCRConstants {
         static let publicPhotos = "services/feeds/photos_public.gne"
     }
     
+    /// Hold dashboard constants
     struct DashboardConstants {
         static let identifire = "FLCRDashboardController"
     }
     
+    /// Hold dashboard details constants
     struct DashboardDetailsConstants {
         static let identifire = "FLCRDashboardDetailsController"
     }
     
+    /// Hold dashboard details page controller constants
     struct DashboardDetailsPageControllerConstants {
         static let identifire = "FLCRDashboardDetailsPageController"
     }

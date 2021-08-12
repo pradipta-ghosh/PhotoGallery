@@ -27,12 +27,14 @@ struct FLCRPhotos: Decodable {
 
 extension FLCRPhotos {
     
+    /// Method to sort using date taken
     mutating func sortUsingDateTaken() {
         items = items.sorted(by: {
             $0.dateTaken.compare($1.dateTaken) == .orderedDescending
         })
     }
     
+    /// Method to sort using date published
     mutating func sortUsingDatePublished() {
         items = items.sorted(by: {
             $0.published.compare($1.published) == .orderedDescending

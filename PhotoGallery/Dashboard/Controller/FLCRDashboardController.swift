@@ -12,12 +12,14 @@ class FLCRDashboardController: FLCRLoadingController {
     var interactor: FLCRDashboardInteractor?
     let refreshControl = UIRefreshControl()
     
+    /// Method to initialize ViewController
     class func controller() -> FLCRDashboardController? {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let dashboardController = storyboard.instantiateViewController(identifier: FLCRConstants.DashboardConstants.identifire) as? FLCRDashboardController
         return dashboardController
     }
     
+    /// didload
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -41,10 +43,12 @@ class FLCRDashboardController: FLCRLoadingController {
         interactor?.presenter?.delegate = self
     }
     
+    /// Method to show sort option in navigation bar
     private func showSortOption() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(filterTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(sortTapped))
     }
     
+    /// Method to hide sort option from navigation bar
     private func hideFilterOption() {
         navigationItem.rightBarButtonItem = nil
     }
@@ -67,7 +71,8 @@ class FLCRDashboardController: FLCRLoadingController {
         fetchPublicPhotos()
     }
     
-    @objc func filterTapped() {
+    /// Method will be called when sort option will be clicked
+    @objc func sortTapped() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let shortByCreated = UIAlertAction(title: "Date Taken", style: .default) { (_) in

@@ -13,12 +13,14 @@ class FLCRDashboardDetailsController: UIViewController {
     var item: FLCRPhoto?
     @IBOutlet weak var detailsImageView: UIImageView!
     
+    /// Method to initialize ViewController
     class func controller() -> FLCRDashboardDetailsController? {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let detailsController = storyboard.instantiateViewController(identifier: FLCRConstants.DashboardDetailsConstants.identifire) as? FLCRDashboardDetailsController
         return detailsController
     }
     
+    /// didload
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

@@ -11,11 +11,13 @@ class FLCRLoadingController: UIViewController {
 
     private var loadingView: FLCRLoadingView?
     
+    /// didload
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
+    /// Method to show loading view
     func showLoadingView() {
         guard let contentView = FLCRLoadingView.fromNib() else {
             return
@@ -32,6 +34,7 @@ class FLCRLoadingController: UIViewController {
         contentView.indicator.startAnimating()
     }
     
+    /// Method to hide loading view
     func hideLoadingView() {
         UIView.animate(withDuration: 0.2) { [weak self] in
             self?.loadingView?.alpha = 0.0
